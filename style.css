@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+}
+.hangman-image {
+    max-height: 400px;
+    padding-left: 20%;
+}
+.word-box {
+    width: 100%;
+}
+
+#textBox {
+    margin-left: 50%;
+    max-width: 100px;
+}
+.word-lines {
+    padding-top: 45%;
+
+    padding-left: 25%;
+    font-size: 50px;
+}
