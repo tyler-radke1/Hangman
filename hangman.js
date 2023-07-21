@@ -8,7 +8,7 @@ var textBox = document.getElementById("textBox");
 
 var submitButton = document.getElementById("submit");
 
-var blankWordInitial = "_ _ _ _ _"
+var blankWordInitial = "_ _ _ _"
 
 console.log(randomWord)
 
@@ -32,27 +32,27 @@ function checkGuess() {
     var char = character
     
     //Get reference to current word status 
-    //var currentWord = document.getElementById('word-lines').innerHTML
+    var currentWord = document.getElementById('word-lines').innerHTML
     
     //Get a copy that removes spaces 
 
-    blankWordInitial = removeSpaces(blankWordInitial)
+    currentWord = removeSpaces(currentWord)
 
     //Iterate through, if randomWord[i] == char and currentWord[i] == _, change it to char 
 
     for(var i = 0; i < randomWord.length; i++) {
         if (randomWord[i] == char) {
-            blankWordInitial[i] = char
+            currentWord[i] = char
         } else {
             continue
         }
     }
 
     //Separate with a space 
-    console.log(blankWordInitial)
-    blankWordInitial = addSpaces(blankWordInitial)
-    console.log(blankWordInitial)
-    document.getElementById("word-lines").innerHTML = blankWordInitial
+    console.log(currentWord)
+    currentWord = addSpaces(currentWord)
+    console.log(currentWord)
+    document.getElementById("word-lines").innerHTML = currentWord
 
  }
 
