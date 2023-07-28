@@ -8,16 +8,19 @@ var textBox = document.getElementById("textBox");
 
 var submitButton = document.getElementById("submit");
 
-var blankWordInitial = "_ _ _ _"
+//var blankWordInitial = "_ _ _ _"
 
 console.log(randomWord)
 
 function checkGuess() {
     var word = document.getElementById('textBox').value.toString()
 
+    var wordToComare = removeSpaces(randomWord)
+
+
     for(var i = 0; i < word.length; i++) {
         const char = word[i]
-        if (randomWord.includes(char)) {
+        if (wordToComare.includes(char)) {
             //Letter is included and needs to be added
             letterIsIncluded(char)
         } else {
@@ -30,18 +33,16 @@ function checkGuess() {
 
  function letterIsIncluded(character) {
     var char = character
-    
     //Get reference to current word status 
     var currentWord = document.getElementById('word-lines').innerHTML
     
     //Get a copy that removes spaces 
-
     currentWord = removeSpaces(currentWord)
 
     //Iterate through, if randomWord[i] == char and currentWord[i] == _, change it to char 
 
-    for(var i = 0; i < randomWord.length; i++) {
-        if (randomWord[i] == char) {
+    for(var i = 0; i < currentWord.length; i++) {
+        if (currentWord[i] == char) {
             currentWord[i] = char
         } else {
             continue
@@ -49,10 +50,10 @@ function checkGuess() {
     }
 
     //Separate with a space 
-    console.log(currentWord)
-    currentWord = addSpaces(currentWord)
-    console.log(currentWord)
-    document.getElementById("word-lines").innerHTML = currentWord
+    // console.log(currentWord)
+     currentWord = addSpaces(currentWord)
+    // console.log(currentWord)
+     document.getElementById("word-lines").innerHTML = currentWord
 
  }
 
